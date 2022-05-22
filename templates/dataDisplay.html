@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <meta name="viewport" content="with=device-width, initial-scale=1.0" >
+  <title>Title for hack</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='styles/mainpage.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Akshar:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <section class="header">
+    <nav> 
+      <a href="index.html"><img src="{{ url_for('static',filename='pixil.png') }}" alt=""></a>
+      <div class="nav-links" id="navLinks">
+        <i class="fa fa-times" onclick="hideMenu()"></i>
+        <ul>
+          <li><a href="">HOME</a></li>
+          <li><a href="">ABOUT</a></li>
+          <li><a href="">CONTACT</a></li>
+        
+        </ul>
+      </div>
+      <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+
+<div class="text-box">
+  <h1>Local Crime</h1>
+  </p>
+  <a href="" class="hero-btn"><span></span>Report</a>
+</div>
+    
+ </section>
+<!----------------Feed---------->
+<section class="course">
+	<h2>
+    Recent Crimes
+  </h2>
+  <table border="1" class="dataframe">
+    <thead>
+      <tr style="text-align: right;">
+        <th></th>
+        <th>Incident</th>
+        <th>Time</th>
+        <th>Area</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    {%for i in range(0, len)%}
+        <tr>
+            <th>{{i}}</th>
+            <td>{{data["Incident"].iloc[i]}}</td>
+            <td>{{data["Time"].iloc[i]}}</td>
+            <td>{{data["Area"].iloc[i]}}</td>
+        </tr>
+    {%endfor%}
+
+
+    </tbody>
+</table>
+</form>
+  
+<!-----------campus---------->
+  
+  <section class= "campus">
+    
+  </section>
+  
+  
+  
+  
+  <script>
+  var navLinks = document.getElementById("navLinks");
+    function showMenu() {
+      navLinks.style.right = "0";
+  }
+     function hideMenu() {
+      navLinks.style.right = "-200px";
+     }
+</script>
+</section>
+</body>
+</html>
